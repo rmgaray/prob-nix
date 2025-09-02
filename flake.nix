@@ -49,6 +49,8 @@
             tk-8_5
           ];
 
+          propagatedBuildInputs = [ pkgs.graphviz ];
+
           installPhase = ''
             mkdir -p $out
             cp -r * $out/
