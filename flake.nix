@@ -49,8 +49,6 @@
             tk-8_5
           ];
 
-          propagatedBuildInputs = [ pkgs.graphviz ];
-
           installPhase = ''
             mkdir -p $out
             cp -r * $out/
@@ -80,6 +78,7 @@
             makeWrapper $out/prob $out/bin/prob \
               --set JAVA_HOME ${pkgs.jre_headless} \
               --prefix PATH : ${pkgs.jre_headless}/bin \
+              --prefix PATH : ${pkgs.xdot}/bin \
               --set PROB_HOME $out \
               --prefix LD_LIBRARY_PATH : $out/lib:$out/lib/tcltk \
               --set SP_TCL_DSO $out/lib/tcltk/libtcl8.5.so \
